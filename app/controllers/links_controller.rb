@@ -61,6 +61,19 @@ class LinksController < ApplicationController
     end
   end
 
+  #acts_as_votable up/down vote method (styled as peck(+)/pass(-))
+  def upvote
+    @Link = Link.find(params[:id])
+    @Link.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @Link = Link.find(params[:id])
+    @Link.downvote_by current_user
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
