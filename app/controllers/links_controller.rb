@@ -63,14 +63,14 @@ class LinksController < ApplicationController
 
   #acts_as_votable up/down vote method (styled as peck(+)/pass(-))
   def upvote
-    @Link = Link.find(params[:id])
-    @Link.upvote_by current_user
+    @link = Link.find(params[:id])
+    @link.upvote_by current_user
     redirect_to :back
   end
 
   def downvote
-    @Link = Link.find(params[:id])
-    @Link.downvote_by current_user
+    @link = Link.find(params[:id])
+    @link.downvote_by current_user
     redirect_to :back
   end
 
